@@ -10,6 +10,7 @@ RUN td-agent-gem install \
   fluent-plugin-forest \
   fluent-plugin-kubernetes \
   fluent-plugin-kubernetes_metadata_filter \
+  fluent-plugin-parser \
   fluent-plugin-s3 \
   fluent-plugin-secure-forward
 
