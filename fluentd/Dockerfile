@@ -20,7 +20,10 @@ RUN td-agent-gem install \
   fluent-plugin-secure-forward \
   fluent-plugin-splunkapi
 
-RUN cd /etc/td-agent/plugin && wget https://raw.githubusercontent.com/emsearcy/fluent-plugin-gelf/master/lib/fluent/plugin/out_gelf.rb
+RUN cd /etc/td-agent/plugin && \
+    curl \
+    https://raw.githubusercontent.com/emsearcy/fluent-plugin-gelf/master/lib/fluent/plugin/out_gelf.rb \
+    -o out_gelf.rb
 
 ENTRYPOINT ["td-agent"]
 
