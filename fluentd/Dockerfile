@@ -12,6 +12,7 @@ RUN td-agent-gem install \
   fluent-plugin-bigquery \
   fluent-plugin-elasticsearch \
   fluent-plugin-forest \
+  fluent-plugin-gelf \
   fluent-plugin-kubernetes \
   fluent-plugin-kubernetes_metadata_filter \
   fluent-plugin-parser \
