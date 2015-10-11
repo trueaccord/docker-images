@@ -7,7 +7,7 @@ ENV GERRIT_VERSION 2.11.3
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
 RUN curl --create-dirs http://gerrit-releases.storage.googleapis.com/gerrit-$GERRIT_VERSION.war -o $GERRIT_WAR && \
-    chmod 0644 $GERRIT_WAR
+    chmod 0755 /gerrit-bin && chmod 0644 $GERRIT_WAR
 
 ADD init_or_upgrade.sh /
 
