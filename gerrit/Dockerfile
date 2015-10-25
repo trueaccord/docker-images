@@ -6,8 +6,9 @@ ENV GERRIT_VERSION 2.11.3
 
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
-RUN curl --create-dirs http://gerrit-releases.storage.googleapis.com/gerrit-$GERRIT_VERSION.war -o $GERRIT_WAR && \
-    chmod 0755 /gerrit-bin && chmod 0644 $GERRIT_WAR
+RUN mkdir /gerrit-bin && chmod 0755 /gerrit-bin
+
+ADD bin/release.war /gerrit-bin/gerrit.war
 
 ADD init_or_upgrade.sh /
 
@@ -21,5 +22,6 @@ USER gerrit2
 EXPOSE 49417 29418
 
 USER gerrit2
-CMD exec bash -c "cd /gerrit; exec ./bin/gerrit.sh run"
+
+CMD exec bash -c "cd /gerrit; exec ./bin/init.sh"
 
