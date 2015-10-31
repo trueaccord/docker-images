@@ -23,5 +23,7 @@ EXPOSE 49417 29418
 
 USER gerrit2
 
+RUN ln -s /gerrit/etc/dot_ssh /home/gerrit2/.ssh
+
 CMD exec bash -c "cd /gerrit; exec ./bin/init.sh"
 
