@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 RUN echo /usr/bin/debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 
 RUN apt-get update && \
-  apt-get install -yq python-software-properties software-properties-common && \
+  apt-get install -yq git python-software-properties software-properties-common && \
   add-apt-repository ppa:webupd8team/java && \
   apt-get remove -yq python-software-properties && \
   apt-get autoremove -yq && \
@@ -42,5 +42,5 @@ USER gerrit2
 
 RUN ln -s /gerrit/etc/dot_ssh /home/gerrit2/.ssh
 
-CMD exec bash -c "cd /gerrit; exec ./bin/init.sh"
+CMD exec bash -c "cd /gerrit; exec ./bin/init.sh run"
 
