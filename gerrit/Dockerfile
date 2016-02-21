@@ -1,14 +1,31 @@
-FROM java:8
+FROM ubuntu:14.04
+
+# accept-java-license
+RUN echo /usr/bin/debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
+RUN apt-get update && \
+  apt-get install -yq python-software-properties software-properties-common && \
+  add-apt-repository ppa:webupd8team/java && \
+  apt-get remove -yq python-software-properties && \
+  apt-get autoremove -yq && \
+  apt-get clean -yq && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+  apt-get install -yq oracle-java8-installer oracle-java8-set-default && \
+  apt-get autoremove -yq && \
+  apt-get clean -yq && \
+  rm -rf /var/lib/apt/lists/*
 
 MAINTAINER nadavsr@trueaccord.com
 
-ENV GERRIT_VERSION 2.11.3
+ENV GERRIT_VERSION 2.12
 
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
 RUN mkdir /gerrit-bin && chmod 0755 /gerrit-bin
 
-ADD bin/release.war /gerrit-bin/gerrit.war
+RUN wget https://www.gerritcodereview.com/download/gerrit-2.12.war -O /gerrit-bin/gerrit.war
 
 ADD init_or_upgrade.sh /
 
