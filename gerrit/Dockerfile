@@ -42,5 +42,7 @@ USER gerrit2
 
 RUN ln -s /gerrit/etc/dot_ssh /home/gerrit2/.ssh
 
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+
 CMD exec bash -c "cd /gerrit; exec ./bin/init.sh run"
 
