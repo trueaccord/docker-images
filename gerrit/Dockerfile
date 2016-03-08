@@ -19,13 +19,13 @@ RUN apt-get update && \
 
 MAINTAINER nadavsr@trueaccord.com
 
-ENV GERRIT_VERSION 2.12
+ENV GERRIT_VERSION 2.12.1
 
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
 RUN mkdir /gerrit-bin && chmod 0755 /gerrit-bin
 
-RUN wget https://www.gerritcodereview.com/download/gerrit-2.12.war -O /gerrit-bin/gerrit.war
+RUN wget https://www.gerritcodereview.com/download/gerrit-$GERRIT_VERSION.war -O /gerrit-bin/gerrit.war
 
 ADD init_or_upgrade.sh /
 
