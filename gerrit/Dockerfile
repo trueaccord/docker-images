@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 MAINTAINER nadavsr@trueaccord.com
 
-ENV GERRIT_VERSION 2.12.1
+ENV GERRIT_VERSION 2.12.2
 
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
