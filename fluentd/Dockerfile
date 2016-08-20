@@ -13,12 +13,9 @@ RUN td-agent-gem install \
   fluent-plugin-bigquery \
   fluent-plugin-elasticsearch \
   fluent-plugin-forest \
-  fluent-plugin-kubernetes \
-  fluent-plugin-kubernetes_metadata_filter \
   fluent-plugin-parser \
   fluent-plugin-s3 \
-  fluent-plugin-secure-forward \
-  fluent-plugin-splunkapi
+  fluent-plugin-secure-forward
 
 RUN cd /etc/td-agent/plugin && \
     curl \
