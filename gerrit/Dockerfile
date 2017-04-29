@@ -17,9 +17,9 @@ RUN apt-get update && \
   apt-get clean -yq && \
   rm -rf /var/lib/apt/lists/*
 
-MAINTAINER nadavsr@trueaccord.com
+MAINTAINER jdavis@trueaccord.com
 
-ENV GERRIT_VERSION 2.12.2
+ENV GERRIT_VERSION 2.14
 
 ENV GERRIT_WAR /gerrit-bin/gerrit.war
 
