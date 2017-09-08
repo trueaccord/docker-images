@@ -1,3 +1,5 @@
-When using this docker image, you need a persistent volume containing a Gerrit
-site at /gerrit.
+# DEPRECATED
 
+Code moved to  [trueaccord/docker-gerrit](https://github.com/trueaccord/docker-gerrit)
+
+Image moved to [quay.io/trueaccord/gerrit](https://quay.io/trueaccord/gerrit)
